@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta Tags Básicas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACF RANGEL PESTANA - Agência Credenciada dos Correios</title>
+    <meta name="description" content="Agência Credenciada dos Correios em Santos - Serviços postais, encomendas e atendimento empresarial para toda a Baixada Santista">
+    
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ===========================================
+         HEADER - Cabeçalho com branding e login
+         =========================================== -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Informações da marca -->
+                <div class="brand-info">
+                    <h1>ACF RANGEL PESTANA</h1>
+                    <p>Agência Credenciada dos Correios</p>
+                </div>
+                
+                <!-- Card de login do PostalNet -->
+                <div class="postalnet-header">
+                    <div class="postalnet-card">
+                        <div class="postalnet-label">Acesso PostalNet - Clientes</div>
+                        <form class="postalnet-form" id="postalnetForm" onsubmit="loginPostalNet(event)">
+                            <div class="postalnet-inputs">
+                                <input type="text" id="usuario" placeholder="Usuário" required>
+                                <input type="password" id="senha" placeholder="Senha" required>
+                            </div>
+                            <button type="submit" class="postalnet-btn">Entrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===========================================
+         NAVEGAÇÃO - Menu principal
+         =========================================== -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#avaliacoes">Avaliações</a></li>
+                <li><a href="#localizacao">Localização</a></li>
+                <li><a href="#duvidas">Dúvidas</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===========================================
+         SEÇÃO HERO - Apresentação principal
+         =========================================== -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h2>ACF Rangel Pestana</h2>
+            <p>Agência Credenciada dos Correios em Santos, oferecendo todos os serviços postais oficiais com atendimento personalizado para pessoas físicas e empresas. Atendemos toda a Baixada Santista com excelência e qualidade há mais de 30 anos.</p>
+            
+            <!-- Cards de destaque -->
+            <div class="hero-highlights">
+                <div class="hero-item">
+                    <h3>Desde 1992</h3>
+                    <p>Mais de 30 anos de experiência em serviços postais na Baixada Santista</p>
+                </div>
+                <div class="hero-item">
+                    <h3>PostalNet</h3>
+                    <p>Sistema exclusivo para nossos clientes acompanharem suas postagens online</p>
+                </div>
+                <div class="hero-item">
+                    <h3>Atendimento Completo</h3>
+                    <p>Pessoa física e jurídica com soluções personalizadas, acessível e pet friendly</p>
+                </div>
+                <div class="hero-item">
+                    <h3>Baixada Santista</h3>
+                    <p>Atendimento em Santos, São Vicente, Praia Grande, Itanhaém, Peruíbe e Mongaguá</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SEÇÃO SERVIÇOS - Conteúdo principal
+         =========================================== -->
+    <section class="main-content" id="servicos">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Coluna esquerda - Informações dos serviços -->
+                <div class="services-info">
+                    <h2>Nossa Agência Credenciada</h2>
+                    <p>A ACF RANGEL PESTANA é uma agência credenciada dos Correios que oferece todos os serviços postais oficiais com atendimento diferenciado. Nossa equipe está preparada para atender tanto clientes pessoa física quanto empresas que necessitam de soluções logísticas eficientes e seguras.</p>
+                    
+                    <!-- Lista de serviços -->
+                    <h3 style="color: #003366; margin: 2rem 0 1rem;">Serviços Disponíveis:</h3>
+                    <ul class="services-list">
+                        <li>Postagens SEDEX, PAC e Logística Reversa</li>
+                        <li>Carta Registrada e AR (Aviso de Recebimento)</li>
+                        <li>Encomendas nacionais e internacionais</li>
+                        <li>Caixa Postal para recebimento de correspondências</li>
+                        <li>Atendimento empresarial especializado</li>
+                        <li>Sistema PostalNet para nossos clientes acompanharem suas postagens</li>
+                        <li>Embalagens e materiais para postagem</li>
+                        <li>Orientação sobre melhores modalidades de envio</li>
+                        <li>Coleta domiciliar para empresas</li>
+                    </ul>
+                    
+                    <!-- Box de acessibilidade -->
+                    <div class="accessibility-info">
+                        <h4>🌟 Ambiente Inclusivo</h4>
+                        <p><strong>Acessibilidade:</strong> Nossas instalações possuem acesso facilitado para pessoas com mobilidade reduzida, garantindo atendimento digno e confortável para todos.</p>
+                        <br>
+                        <p><strong>Pet Friendly:</strong> Bem-vindos com seus pets! Nossa agência permite a entrada de animais de estimação acompanhados de seus tutores.</p>
+                    </div>
+                    
+                    <p style="margin-top: 2rem;">Nosso compromisso é proporcionar aos nossos clientes as melhores soluções em postagem de objetos, tornando o processo otimizado com foco na redução de custos e garantia de um trabalho profissional de qualidade e segurança.</p>
+                </div>
+                
+                <!-- Coluna direita - Sidebar de contato -->
+                <div class="contact-sidebar" id="contato">
+                    <h3>Informações de Contato</h3>
+                    
+                    <!-- Endereço -->
+                    <div class="contact-item">
+                        <h4>📍 Endereço</h4>
+                        <p>R. Julio de Mesquita, 192<br>Vila Matias, Santos - SP<br>CEP: 11075-220</p>
+                        <div class="coverage-area">
+                            <h5>Área de Atendimento:</h5>
+                            <p>Santos, São Vicente, Praia Grande, Itanhaém, Peruíbe, Mongaguá</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Telefone -->
+                    <div class="contact-item">
+                        <h4>📞 Telefone</h4>
+                        <p><a href="tel:1332221101" class="contact-link">(13) 3222-1101</a></p>
+                        <a href="https://api.whatsapp.com/send?phone=5513322211001" target="_blank" class="whatsapp-btn">WhatsApp</a>
+                    </div>
+                    
+                    <!-- Horário -->
+                    <div class="contact-item">
+                        <h4>🕒 Horário de Funcionamento</h4>
+                        <p><strong>Segunda a Sexta:</strong><br>09:00 às 17:00</p>
+                        <p><strong>Sábado:</strong><br>08:00 às 12:00</p>
+                        <p><small>Feriados: consultar pelo telefone</small></p>
+                    </div>
+                    
+                    <!-- Canal de avisos -->
+                    <div class="contact-item">
+                        <h4>📢 Canal de Avisos</h4>
+                        <p>Receba atualizações, avisos importantes e dicas dos Correios</p>
+                        <a href="https://whatsapp.com/channel/0029Vb6hAu0GzzKKNiJAyS0A" target="_blank" class="whatsapp-btn">Seguir Canal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SEÇÃO SOBRE - Informações da empresa
+         =========================================== -->
+    <section class="about-section" id="sobre">
+        <div class="container">
+            <div class="about-content">
+                <h2>Sobre a ACF Rangel Pestana</h2>
+                
+                <!-- Texto sobre a empresa -->
+                <div class="about-text">
+                    <p>Fundada em 1992, a ACF Rangel Pestana é uma agência credenciada dos Correios constituída por dois sócios diretores comprometidos em proporcionar aos nossos clientes as melhores soluções em postagem de objetos. Nossa missão é tornar o processo otimizado com foco na redução de custos e garantia de um trabalho profissional de qualidade e segurança.</p>
+                    
+                    <p>Sediados em Santos, atendemos toda a região da Baixada Santista, oferecendo conveniência e proximidade para nossos clientes em Santos, São Vicente, Praia Grande, Itanhaém, Peruíbe e Mongaguá.</p>
+                </div>
+                
+                <!-- Estatísticas -->
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">30+</span>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <div class="stat-label">Serviços Oficiais Correios</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <div class="stat-label">Cidades Atendidas</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <div class="stat-label">Sócios Diretores</div>
+                    </div>
+                </div>
+                
+                <!-- Cards de missão, visão e valores -->
+                <div class="mission-section">
+                    <div class="mission-cards">
+                        <div class="mission-card">
+                            <h4>🎯 Nossa Missão</h4>
+                            <p>Oferecer serviços postais de excelência, garantindo segurança, agilidade e economia para todos os nossos clientes na Baixada Santista.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h4>👁️ Nossa Visão</h4>
+                            <p>Ser reconhecida como a melhor agência credenciada dos Correios da região, sendo referência em qualidade e atendimento personalizado.</p>
+                        </div>
+                        <div class="mission-card">
+                            <h4>⭐ Nossos Valores</h4>
+                            <p>Compromisso, transparência, qualidade, acessibilidade e respeito, sempre colocando as necessidades dos nossos clientes em primeiro lugar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SEÇÃO AVALIAÇÕES - Reviews do Google
+         =========================================== -->
+    <section class="reviews-section" id="avaliacoes">
+        <div class="container">
+            <div class="reviews-content">
+                <h2>Avaliação dos Nossos Clientes</h2>
+                <p class="reviews-intro">Confira o que nossos clientes dizem sobre nossos serviços</p>
+                
+                <!-- Card de avaliação do Google -->
+                <div class="google-rating">
+                    <div class="google-logo">
+                        <span class="google-g">G</span>
+                        <span class="google-o1">o</span>
+                        <span class="google-o2">o</span>
+                        <span class="google-g2">g</span>
+                        <span class="google-l">l</span>
+                        <span class="google-e">e</span>
+                        <span style="color: #666; margin-left: 5px;">Reviews</span>
+                    </div>
+                    
+                    <div class="rating-display">
+                        <span class="rating-number">4.3</span>
+                        <div class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star partial">★</span>
+                        </div>
+                    </div>
+                    
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">Baseado em avaliações do Google</p>
+                    
+                    <a href="https://www.google.com/search?q=ACF+RANGEL+PESTANA+correios+santos" target="_blank" class="reviews-btn">
+                        Ver Todas as Avaliações
+                    </a>
+                </div>
+                
+                <!-- Testemunho -->
+                <div class="reviews-testimonial">
+                    <p>"Excelente atendimento! Sempre eficientes e prestativos. A equipe é muito profissional e o ambiente é acolhedor."</p>
+                    <small>- Cliente verificado Google</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SEÇÃO MAPA - Localização no Google Maps
+         =========================================== -->
+    <section class="map-section" id="localizacao">
+        <div class="container">
+            <h2>Nossa Localização</h2>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d304.2148270142655!2d-46.32806307853192!3d-23.94424738140859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce0379ec72b0d5%3A0x56f3e32b1b397060!2sCorreios%20-%20AGF%20J%C3%BAlio%20de%20Mesquita!5e0!3m2!1spt-BR!2sbr!4v1757712011338!5m2!1spt-BR!2sbr"
+                    loading="lazy"
+                    allowfullscreen=""
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SEÇÃO FAQ - Perguntas frequentes
+         =========================================== -->
+    <section class="faq-section" id="duvidas">
+        <div class="container">
+            <h2>Dúvidas Frequentes</h2>
+            <p class="faq-intro">Encontre respostas rápidas para as perguntas mais comuns sobre nossos serviços</p>
+            
+            <!-- Grade de cards FAQ -->
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <div class="faq-question">💰 Quanto custa para enviar minha encomenda?</div>
+                    <div class="faq-answer">Os preços variam conforme o peso, dimensões e destino. Use a calculadora oficial dos Correios para conferir valores atualizados e prazos de entrega.</div>
+                    <a href="https://www2.correios.com.br/sistemas/precosPrazos/" target="_blank" class="faq-btn">Calcular Preço e Prazo</a>
+                </div>
+                
+                <div class="faq-card">
+                    <div class="faq-question">📦 Como rastrear minha encomenda?</div>
+                    <div class="faq-answer">Você pode acompanhar sua encomenda em tempo real usando o código de rastreamento que fornecemos no momento da postagem.</div>
+                    <a href="https://rastreamento.correios.com.br/app/index.php" target="_blank" class="faq-btn">Rastrear Encomenda</a>
+                </div>
+                
+                <div class="faq-card">
+                    <div class="faq-question">📮 Qual o CEP do meu endereço?</div>
+                    <div class="faq-answer">Não sabe o CEP completo? Use a busca oficial dos Correios para encontrar o código postal de qualquer endereço no Brasil.</div>
+                    <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" class="faq-btn">Buscar CEP</a>
+                </div>
+                
+                <div class="faq-card">
+                    <div class="faq-question">🛒 Onde comprar produtos dos Correios?</div>
+                    <div class="faq-answer">Precisa de embalagens, selos ou outros produtos oficiais? Acesse a loja online dos Correios com entrega em todo o Brasil.</div>
+                    <a href="https://www.maiscorreios.com.br/" target="_blank" class="faq-btn">Acessar Loja</a>
+                </div>
+                
+                <div class="faq-card">
+                    <div class="faq-question">🏢 Minha empresa precisa de um contrato?</div>
+                    <div class="faq-answer">Empresas com volume regular de postagens podem ter condições especiais. Acesse o portal corporativo para mais informações.</div>
+                    <a href="https://empresas.correios.com.br/#/login" target="_blank" class="faq-btn">Portal Empresas</a>
+                </div>
+                
+                <div class="faq-card">
+                    <div class="faq-question">💳 Posso pagar à vista com desconto?</div>
+                    <div class="faq-answer">Sim! O sistema de pré-postagem permite pagamento antecipado com desconto. Ideal para quem envia com frequência.</div>
+                    <a href="https://prepostagem.correios.com.br" target="_blank" class="faq-btn">Pré-Postagem</a>
+                </div>
+                
+                <div class="faq-card">
+                    <div class="faq-question">🐕 Posso entrar com meu pet?</div>
+                    <div class="faq-answer">Claro! Somos pet friendly. Você pode trazer seu animal de estimação durante o atendimento. Garantimos um ambiente acolhedor para todos.</div>
+                    <a href="#contato" class="faq-btn">Nosso Endereço</a>
+                </div>
+                
+                <div class="faq-card">
+                    <div class="faq-question">♿ A agência tem acessibilidade?</div>
+                    <div class="faq-answer">Sim! Nossas instalações possuem acesso facilitado para pessoas com mobilidade reduzida, garantindo atendimento digno e confortável.</div>
+                    <a href="#contato" class="faq-btn">Como Chegar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         FOOTER - Rodapé com informações da empresa
+         =========================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>ACF RANGEL PESTANA</h3>
+                <p>Agência Credenciada dos Correios | Santos - SP</p>
+                <p>R. Julio de Mesquita, 192 - Vila Matias | CEP: 11075-220</p>
+                <p>Telefone: (13) 3222-1101</p>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>
+                    <p>&copy; 2025 ACF RANGEL PESTANA - Todos os direitos reservados</p>
+                </div>
+                <div class="dev-credit">
+                    <p>Desenvolvido por <a href="#" title="Desenvolvedor">Dev. Claude</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===========================================
+         JAVASCRIPT - Scripts do site
+         =========================================== -->
+    <script src="script.js"></script>
+</body>
+</html>

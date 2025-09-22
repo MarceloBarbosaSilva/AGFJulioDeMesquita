@@ -1,6 +1,7 @@
 /* ==============================================
    RESET CSS E CONFIGURAÇÕES GLOBAIS
    ============================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 * {
     margin: 0;
@@ -29,7 +30,7 @@ body {
 header {
     background-color: #003366;
     color: white;
-    padding: 15px 0;
+    padding: 15px 0; /* Aumentado para dar mais espaço vertical */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -41,11 +42,18 @@ header {
 }
 
 /* Informações da marca (lado esquerdo) */
+.brand-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+/* Informações da marca (lado esquerdo) */
 .brand-info h1 {
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem; /* Ajustado para um tamanho mais equilibrado */
+    font-weight: 700;
     margin-bottom: 2px;
-    color: #ffd700; /* Dourado para destaque */
+    color: #ffd700;
     letter-spacing: 1px;
 }
 
@@ -60,65 +68,161 @@ header {
 
 .postalnet-header {
     display: flex;
-    align-items: center;
+    justify-content: center; /* Centraliza o card */
 }
 
-/* Card transparente com efeito glassmorphism */
+/* Card principal do login, agora sem o efeito de vidro */
 .postalnet-card {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 8px;
-    padding: 15px;
-    min-width: 280px;
+    background-color: transparent; /* Fundo transparente */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none; /* Removemos a borda */
 }
 
+/* Título "Member Login" */
 .postalnet-label {
-    font-size: 0.8rem;
-    opacity: 0.9;
-    margin-bottom: 10px;
+    font-size: 1.5rem; /* Aumentamos a fonte */
+    font-weight: 600; /* Deixamos em negrito */
+    color: white; /* Cor do texto branca para contrastar com o header */
+    margin-bottom: 20px;
     text-align: center;
     display: block;
 }
 
-/* Formulário de login */
+/* O formulário geral continua como coluna (para o botão ficar abaixo) */
 .postalnet-form {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    align-items: center;
+    gap: 0;
 }
 
+/* O container dos inputs agora será uma linha (um ao lado do outro) */
 .postalnet-inputs {
     display: flex;
-    gap: 8px;
+    flex-direction: row; /* <-- AQUI ESTÁ A MUDANÇA PRINCIPAL */
+    gap: 10px; /* Espaço entre os campos e o botão */
 }
 
-/* Campos de entrada do login */
+.postalnet-form > .postalnet-inputs,
+.postalnet-form > .postalnet-btn {
+    margin-bottom: 5px; /* Reduzido para aproximar do link abaixo */
+}
+
+
+/* Estilo dos campos de entrada (Email/Senha) */
 .postalnet-form input {
-    padding: 8px 10px;
-    border: none;
-    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco levemente transparente */
+    border: 1px solid transparent;
+    border-radius: 50px; /* Bordas totalmente arredondadas (pílula) */
+    padding: 10px 20px 10px 40px; /* Mais padding para um visual mais espaçado */
     font-size: 0.85rem;
-    flex: 1;
-    min-width: 80px;
+    color: #333;
+    background-repeat: no-repeat;
+    background-position: 15px center; /* Posição do ícone */
+    background-size: 16px; /* Tamanho do ícone */
+    transition: all 0.3s ease; /* Transição suave para foco */
+    outline: none; /* Remove o contorno padrão do navegador */
 }
 
-/* Botão de login */
+/* Estilo do placeholder */
+.postalnet-form input::placeholder {
+    color: #888;
+}
+
+/* Efeito de foco nos inputs */
+.postalnet-form input:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3); /* Brilho dourado ao focar */
+}
+
+/* Adiciona o ícone de usuário */
+#usuario {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23555" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>');
+}
+
+/* Adiciona o ícone de cadeado */
+#senha {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23555" class="bi bi-lock-fill" viewBox="0 0 16 16"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>');
+}
+
+/* Estilo do botão de login */
 .postalnet-btn {
-    background-color: #ffd700;
-    color: #003366;
+    background-color: #25d366; /* Cor verde, similar ao WhatsApp */
+    color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 0.85rem;
+    padding: 10px 25px;
+    border-radius: 50px; /* Bordas totalmente arredondadas (pílula) */
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%;
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+/* Ajuste para o botão dentro do container de inputs */
+.postalnet-inputs .postalnet-btn {
+    flex-shrink: 0; /* Impede que o botão encolha */
 }
 
 .postalnet-btn:hover {
-    background-color: #ffed4a;
+    background-color: #128c7e; /* Verde mais escuro ao passar o mouse */
+}
+
+/* Estilo do link "Esqueci a senha" */
+.forgot-password {
+    text-align: center;
+    margin-top: 5px; /* Reduzido para subir o link */
+}
+
+.forgot-password a {
+    color: white;
+    font-size: 0.85rem;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.forgot-password a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+/* ==============================================
+   ESTILOS DE ERRO E FEEDBACK VISUAL
+   ============================================== */
+
+/* Mensagem de erro para o formulário de login */
+.login-error-message {
+    color: #ffdddd; /* Vermelho claro para contraste no fundo azul */
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 8px;
+    display: none; /* Oculto por padrão */
+    min-height: 1em; /* Garante que não "pule" o layout ao aparecer */
+}
+
+/* Classe para exibir a mensagem de erro */
+.login-error-message.show {
+    display: block;
+}
+
+/* Classe para campos de input com erro */
+.input-error {
+    border: 2px solid #ff5555 !important; /* Borda vermelha e importante para sobrepor outros estilos */
+}
+
+/* Animação de "vibrar" (shake) */
+.shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
 }
 
 /* ==============================================
@@ -160,13 +264,31 @@ nav {
     text-decoration: none;
     padding: 12px 20px;
     font-size: 0.9rem;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
+    position: relative;
 }
 
 .nav-list a:hover {
-    background-color: rgba(255,255,255,0.1);
+    color: #ffd700; /* Muda a cor do texto para dourado no hover */
 }
 
+/* Efeito de sublinhado animado */
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px; /* Posição da linha */
+    left: 20px;
+    width: calc(100% - 40px);
+    height: 2px;
+    background-color: #ffd700;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Animação acontece no hover */
+.nav-list a:hover::after {
+    transform: scaleX(1);
+}
 /* ==============================================
    SEÇÃO HERO - APRESENTAÇÃO PRINCIPAL
    ============================================== */
@@ -174,21 +296,29 @@ nav {
 .hero {
     background: linear-gradient(135deg, #003366, #0066cc);
     color: white;
-    padding: 4rem 0;
+    padding: 3rem 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.hero-main-content {
     text-align: center;
 }
 
 .hero h2 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .hero p {
     font-size: 1.1rem;
     opacity: 0.9;
-    max-width: 800px;
-    margin: 0 auto 2rem;
 }
 
 /* Grade de cards de destaque */
@@ -196,8 +326,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
+    margin: 2rem auto 0;
 }
 
 /* Cards individuais de destaque */
@@ -231,7 +360,7 @@ nav {
 /* Layout em duas colunas */
 .content-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1.2fr;
     gap: 3rem;
     align-items: start;
 }
@@ -296,47 +425,39 @@ nav {
    SIDEBAR DE CONTATO
    ============================================== */
 
-.contact-sidebar {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 8px;
-    border: 1px solid #e9ecef;
-    position: sticky; /* Fica fixo durante scroll */
-    top: 20px;
-}
-
-.contact-sidebar h3 {
-    color: #003366;
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
+/* Barra de contato com estilo de cards */
+.contact-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 1.5rem;
 }
 
 /* Items individuais da sidebar */
 .contact-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e9ecef;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .contact-item:last-child {
     border-bottom: none;
     margin-bottom: 0;
-}
-
-.contact-item h4 {
-    color: #0066cc;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
+    padding-bottom: 0;
+    border-right: none;
 }
 
 .contact-item p {
     font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
 }
 
 /* Links de contato */
 .contact-link {
-    color: #0066cc;
+    color: #ffd700; /* Dourado para o link de telefone */
     text-decoration: none;
     font-weight: 500;
 }
@@ -345,6 +466,32 @@ nav {
     text-decoration: underline;
 }
 
+/* Container para os botões de contato */
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas pequenas */
+    justify-content: center;
+    gap: 10px; /* Espaço entre os botões */
+    margin-top: 0.5rem; /* Espaço entre o título e os botões */
+}
+
+/* Botão de Telefone */
+.phone-btn {
+    background-color: #0066cc; /* Azul padrão do site */
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 0; /* A margem agora é controlada pelo container .contact-buttons */
+    transition: background-color 0.3s ease;
+}
+
+.phone-btn:hover {
+    background-color: #0052a3; /* Azul mais escuro */
+}
 /* Botão do WhatsApp */
 .whatsapp-btn {
     background-color: #25d366;
@@ -355,7 +502,7 @@ nav {
     font-size: 0.85rem;
     font-weight: 500;
     display: inline-block;
-    margin-top: 0.5rem;
+    margin-top: 0; /* A margem agora é controlada pelo container .contact-buttons */
     transition: background-color 0.3s ease;
 }
 
@@ -450,8 +597,9 @@ nav {
 }
 
 .mission-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -462,6 +610,8 @@ nav {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    flex: 1 1 300px;
+    max-width: 380px;
 }
 
 .mission-card h4 {
@@ -502,14 +652,20 @@ nav {
     font-size: 1.1rem;
 }
 
+/* Grid para avaliações */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
 /* Card principal de avaliação */
 .google-rating {
     background: white;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    display: inline-block;
-    margin-bottom: 2rem;
 }
 
 /* Display da nota e estrelas */
@@ -593,12 +749,18 @@ nav {
     background-color: #3367d6;
 }
 
+/* Coluna de testemunhos */
+.testimonials-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
 /* Testemunho destacado */
 .reviews-testimonial {
     background: rgba(255,255,255,0.7);
-    padding: 1.5rem;
+    padding: 1.2rem;
     border-radius: 8px;
-    margin-top: 2rem;
     border-left: 4px solid #ffd700;
 }
 
@@ -647,55 +809,58 @@ nav {
    SEÇÃO FAQ - PERGUNTAS FREQUENTES
    ============================================== */
 
-.faq-section {
+/* Estilo da nova sidebar de FAQ */
+.faq-sidebar {
     background: #f8f9fa;
-    padding: 3rem 0;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
 }
 
-.faq-section h2 {
+.faq-sidebar h2 {
     text-align: center;
     color: #003366;
     margin-bottom: 1rem;
     font-size: 1.8rem;
 }
 
-.faq-intro {
+.faq-sidebar .faq-intro {
     text-align: center;
     color: #666;
-    margin-bottom: 3rem;
-    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
 }
 
 /* Grade de cards FAQ */
-.faq-grid {
+.faq-sidebar .faq-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr; /* Apenas uma coluna na sidebar */
+    gap: 1.5rem;
 }
 
 /* Cards individuais de FAQ */
-.faq-card {
+.faq-sidebar .faq-card {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid #e9ecef;
     transition: all 0.3s ease;
 }
 
 /* Efeito hover nos cards */
-.faq-card:hover {
+.faq-sidebar .faq-card:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transform: translateY(-2px);
 }
 
-.faq-question {
+.faq-sidebar .faq-question {
     color: #003366;
     margin-bottom: 1rem;
     font-size: 1.1rem;
     font-weight: 600;
 }
 
-.faq-answer {
+.faq-sidebar .faq-answer {
     font-size: 0.95rem;
     color: #666;
     margin-bottom: 1.5rem;
@@ -703,7 +868,7 @@ nav {
 }
 
 /* Botões dos cards FAQ */
-.faq-btn {
+.faq-sidebar .faq-btn {
     background-color: #0066cc;
     color: white;
     text-decoration: none;
@@ -715,8 +880,167 @@ nav {
     display: inline-block;
 }
 
-.faq-btn:hover {
+.faq-sidebar .faq-btn:hover {
     background-color: #0052a3;
+}
+/* ==============================================
+   MODAL - JANELA POP-UP ("Esqueci a Senha")
+   ============================================== */
+
+/* O fundo (overlay) do modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed; /* Fica fixo na tela */
+    z-index: 1000; /* Fica na frente de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilita scroll se necessário */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo preto semi-transparente */
+    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% do topo e centralizado horizontalmente */
+    padding: 25px 30px;
+    border: 1px solid #ddd;
+    width: 90%;
+    max-width: 500px; /* Largura máxima */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botão de fechar (X) */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+}
+
+.modal-content h4 {
+    color: #003366;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-info {
+    font-size: 0.8rem !important;
+    color: #777 !important;
+    margin-top: 1.5rem;
+    margin-bottom: 0 !important;
+}
+
+/* Lista de emails no modal */
+.email-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.email-list li {
+    padding: 0.5rem 0;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+/* ==============================================
+   FOOTER - SEÇÃO DE LINKS OFICIAIS
+   ============================================== */
+
+.footer-official-section {
+    margin-top: 2.5rem; /* Mantém o espaço superior */
+    background-color: rgba(0, 0, 0, 0.2); /* Fundo escuro para destacar o card */
+    padding: 1.5rem; /* Espaçamento interno uniforme */
+    border-radius: 8px; /* Bordas arredondadas */
+    border-top: none; /* Remove a linha superior, já que agora é um card */
+}
+
+.footer-official-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.footer-official-header h5 {
+    color: #ffd700;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.footer-official-header p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.footer-official-content {
+    /* Removido o grid */
+}
+
+.footer-official-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Espaço entre os itens */
+}
+
+.footer-official-links-list li {
+    /* padding e border removidos para dar lugar ao estilo de botão */
+}
+
+.footer-official-links-list li:last-child {
+    border-right: none;
+}
+
+.footer-official-links-list a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+    font-size: 0.85rem;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    display: flex; /* Para alinhar ícones */
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-official-links-list a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #ffd700;
+    opacity: 1;
 }
 
 /* ==============================================
@@ -726,22 +1050,55 @@ nav {
 footer {
     background-color: #003366;
     color: white;
-    padding: 2rem 0 1rem;
+    padding: 2.5rem 0 1.5rem;
 }
 
-.footer-content {
-    text-align: center;
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
 }
 
-.footer-content h3 {
+.footer-agency-info h3 {
     color: #ffd700;
     margin-bottom: 1rem;
 }
 
-.footer-content p {
+.footer-agency-info p {
     font-size: 0.9rem;
     opacity: 0.8;
     margin-bottom: 0.5rem;
+}
+
+.footer-help {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.footer-help h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.email-modal-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.email-modal-btn:hover {
+    background-color: #0052a3;
+    color: #ffd700;
 }
 
 /* Rodapé inferior com copyright */
@@ -753,10 +1110,10 @@ footer {
     font-size: 0.8rem;
     opacity: 0.7;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Altera para centralizar os itens */
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px; /* Aumenta o espaço entre os itens para melhor visualização */
 }
 
 /* Crédito do desenvolvedor */
@@ -792,15 +1149,21 @@ footer {
         align-items: center;
     }
     
-    .postalnet-card {
-        min-width: 100%;
-        max-width: 300px;
-    }
-    
     .postalnet-inputs {
         flex-direction: column;
     }
+
+    .postalnet-inputs .postalnet-btn {
+        width: 100%; /* Faz o botão ocupar a largura total no mobile */
+        margin-top: 5px;
+    }
     
+    /* Hero section responsivo */
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
     /* Navegação responsiva */
     .nav-list {
         flex-wrap: wrap;
@@ -814,11 +1177,6 @@ footer {
         min-width: 120px;
     }
     
-    /* Hero section responsivo */
-    .hero h2 {
-        font-size: 2rem;
-    }
-    
     .hero {
         padding: 3rem 0;
     }
@@ -830,11 +1188,6 @@ footer {
     }
     
     /* Sidebar não fica mais sticky em mobile */
-    .contact-sidebar {
-        position: static;
-    }
-    
-    /* Hero highlights em coluna única */
     .hero-highlights {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -844,11 +1197,39 @@ footer {
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* Mission cards em coluna única */
+    .mission-cards {
+        flex-direction: column;
+    }
     
     /* Footer responsivo */
+    .footer-main {
+        flex-direction: column;
+        align-items: center; /* Centraliza os itens horizontalmente quando em coluna */
+        text-align: center;
+    }
+
     .footer-bottom {
         flex-direction: column;
-        text-align: center;
+        justify-content: center; /* Força o agrupamento central */
+        align-items: center;
+        gap: 5px; /* Reduz o espaço entre os itens no mobile */
+    }
+
+    /* Footer oficial responsivo */
+    .footer-official-content {
+        /* Não precisa mais de grid */
+    }
+
+    .footer-official-links-list li {
+        border-right: none; /* Remove separadores no mobile para melhor quebra de linha */
+    }
+
+    .contact-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
     }
 }
 
@@ -864,13 +1245,8 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    /* FAQ em coluna única */
-    .faq-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Mission cards em coluna única */
-    .mission-cards {
+    /* Grid de reviews em coluna única */
+    .reviews-grid {
         grid-template-columns: 1fr;
     }
 }

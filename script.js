@@ -24,25 +24,35 @@ function loginPostalNet(event) {
     // Previne o comportamento padrão do formulário (recarregar página)
     event.preventDefault();
     
-    // Obtém os valores dos campos de entrada
-    const usuario = document.getElementById('usuario').value;
-    const senha = document.getElementById('senha').value;
+    // Obtém os elementos dos campos e da mensagem de erro
+    const usuarioInput = document.getElementById('usuario');
+    const senhaInput = document.getElementById('senha');
+    const errorMessage = document.getElementById('loginErrorMessage');
+
+    // Remove classes de erro anteriores para resetar o estado
+    usuarioInput.classList.remove('input-error', 'shake');
+    senhaInput.classList.remove('input-error', 'shake');
+    errorMessage.classList.remove('show');
+    errorMessage.textContent = '';
     
-    // Validação básica - verifica se os campos estão preenchidos
-    if (!usuario || !senha) {
-        alert('Por favor, preencha todos os campos.');
+    // Validação - verifica se os campos estão vazios
+    if (usuarioInput.value.trim() === '' || senhaInput.value.trim() === '') {
+        // Adiciona classes de erro aos campos
+        usuarioInput.classList.add('input-error', 'shake');
+        senhaInput.classList.add('input-error', 'shake');
+        
+        // Exibe a mensagem de erro
+        errorMessage.textContent = 'Usuário ou senha inválidos.';
+        errorMessage.classList.add('show');
+
+        // Remove a animação de shake após ela terminar para que possa ser reativada
+        setTimeout(() => {
+            usuarioInput.classList.remove('shake');
+            senhaInput.classList.remove('shake');
+        }, 500); // 500ms é a duração da animação
+
         return;
     }
-    
-    // Validação adicional - verifica se não há apenas espaços
-    if (usuario.trim() === '' || senha.trim() === '') {
-        alert('Por favor, preencha os campos com informações válidas.');
-        return;
-    }
-    
-    // IMPORTANTE: Substitua esta URL pela URL real do PostalNet
-    // quando obtiver acesso aos dados corretos
-    alert('Redirecionando para o sistema PostalNet...');
     
     // URL do PostalNet (PLACEHOLDER - substituir pela URL real)
     const postalnetUrl = 'https://postalnet.correios.com.br/login';
@@ -54,7 +64,7 @@ function loginPostalNet(event) {
     document.getElementById('postalnetForm').reset();
     
     // Log para debug (remover em produção se necessário)
-    console.log('Tentativa de login PostalNet - Usuário:', usuario);
+    console.log('Tentativa de login PostalNet - Usuário:', usuarioInput.value);
 }
 
 // ================================================
@@ -131,7 +141,7 @@ function validatePostalNetForm() {
  * Adiciona feedback visual quando botões são clicados
  */
 function addButtonFeedback() {
-    const buttons = document.querySelectorAll('.postalnet-btn, .whatsapp-btn, .reviews-btn, .faq-btn');
+    const buttons = document.querySelectorAll('.postalnet-btn, .whatsapp-btn, .reviews-btn, .faq-btn, .phone-btn, .email-modal-btn');
     
     buttons.forEach(button => {
         button.addEventListener('click', function() {
@@ -215,6 +225,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Otimizações para mobile
     handleMobileOptimizations();
+
+    // Adiciona o fallback para os links dos Correios
+    addLinkFallback();
     
     // Log para confirmar que o script foi carregado
     console.log('ACF Rangel Pestana - Site carregado com sucesso!');
@@ -291,4 +304,66 @@ function validarCEP(cep) {
                           '88888888', '99999999'];
     
     return !cepsInvalidos.includes(cepLimpo);
+}
+
+// ================================================
+// FUNÇÃO PARA O LINK "ESQUECI A SENHA"
+// ================================================
+
+/**
+ * Exibe um modal instruindo o usuário a contatar via WhatsApp
+ * @param {Event} event - O evento de clique
+ */
+function solicitarNovaSenha(event) {
+    // Previne que o link '#' recarregue a página ou mude a URL
+    event.preventDefault();
+    
+    // Obtém os elementos do modal
+    const modal = document.getElementById('senhaModal');
+    const closeButton = modal.querySelector('.close-button');
+
+    // Mostra o modal
+    modal.style.display = 'block';
+
+    // Função para fechar o modal
+    const closeModal = () => {
+        modal.style.display = 'none';
+    };
+
+    // Fecha o modal ao clicar no 'X'
+    closeButton.onclick = closeModal;
+
+    // Fecha o modal ao clicar fora do conteúdo
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    };
+}
+
+/**
+ * Exibe um modal com a lista de e-mails de contato
+ * @param {Event} event - O evento de clique
+ */
+function openEmailModal(event) {
+    // Previne que o link '#' recarregue a página ou mude a URL
+    event.preventDefault();
+
+    // Obtém os elementos do modal de e-mail
+    const modal = document.getElementById('emailModal');
+    const closeButton = modal.querySelector('.close-button');
+
+    // Mostra o modal
+    modal.style.display = 'block';
+
+    // Função para fechar o modal
+    const closeModal = () => {
+        modal.style.display = 'none';
+    };
+
+    // Fecha o modal ao clicar no 'X'
+    closeButton.onclick = closeModal;
+
+    // Fecha o modal ao clicar fora do conteúdo (reutiliza a lógica do outro modal)
+    // A lógica no `solicitarNovaSenha` já cobre isso, mas é bom ter aqui para clareza.
 }

@@ -3,10 +3,11 @@
 <head>
     <!-- Meta Tags Básicas -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACF RANGEL PESTANA - Agência Credenciada dos Correios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>ACF RANGEL PESTANA</title>
     <meta name="description" content="Agência Credenciada dos Correios em Santos - Serviços postais, encomendas e atendimento empresarial para toda a Baixada Santista">
     
+    <!-- Favicon (ícone da guia) -->
+    <link rel="shortcut icon" href="assets/AGF.png?v=1.0" type="image/png" sizes="any">
     <!-- CSS Externo -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,17 +23,21 @@
                     <h1>ACF RANGEL PESTANA</h1>
                     <p>Agência Credenciada dos Correios</p>
                 </div>
-                
                 <!-- Card de login do PostalNet -->
                 <div class="postalnet-header">
                     <div class="postalnet-card">
-                        <div class="postalnet-label">Acesso PostalNet - Clientes</div>
                         <form class="postalnet-form" id="postalnetForm" onsubmit="loginPostalNet(event)">
                             <div class="postalnet-inputs">
                                 <input type="text" id="usuario" placeholder="Usuário" required>
                                 <input type="password" id="senha" placeholder="Senha" required>
+                                <button type="submit" class="postalnet-btn">LOGIN</button>
                             </div>
-                            <button type="submit" class="postalnet-btn">Entrar</button>
+                            <!-- Mensagem de erro (inicialmente oculta) -->
+                            <p id="loginErrorMessage" class="login-error-message"></p>
+
+                            <div class="forgot-password">
+                                <a href="#" onclick="solicitarNovaSenha(event)">Esqueci minha senha</a>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -47,12 +52,12 @@
         <div class="nav-container">
             <ul class="nav-list">
                 <li><a href="#inicio">Início</a></li>
+                <li><a href="#contato">Contato</a></li>
                 <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#duvidas">Dúvidas</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#avaliacoes">Avaliações</a></li>
                 <li><a href="#localizacao">Localização</a></li>
-                <li><a href="#duvidas">Dúvidas</a></li>
-                <li><a href="#contato">Contato</a></li>
             </ul>
         </div>
     </nav>
@@ -61,29 +66,35 @@
          SEÇÃO HERO - Apresentação principal
          =========================================== -->
     <section class="hero" id="inicio">
-        <div class="container">
-            <h2>ACF Rangel Pestana</h2>
-            <p>Agência Credenciada dos Correios em Santos, oferecendo todos os serviços postais oficiais com atendimento personalizado para pessoas físicas e empresas. Atendemos toda a Baixada Santista com excelência e qualidade há mais de 30 anos.</p>
-            
-            <!-- Cards de destaque -->
-            <div class="hero-highlights">
-                <div class="hero-item">
-                    <h3>Desde 1992</h3>
-                    <p>Mais de 30 anos de experiência em serviços postais na Baixada Santista</p>
-                </div>
-                <div class="hero-item">
-                    <h3>PostalNet</h3>
-                    <p>Sistema exclusivo para nossos clientes acompanharem suas postagens online</p>
-                </div>
-                <div class="hero-item">
-                    <h3>Atendimento Completo</h3>
-                    <p>Pessoa física e jurídica com soluções personalizadas, acessível e pet friendly</p>
-                </div>
-                <div class="hero-item">
-                    <h3>Baixada Santista</h3>
-                    <p>Atendimento em Santos, São Vicente, Praia Grande, Itanhaém, Peruíbe e Mongaguá</p>
+        <div class="container hero-grid">
+            <!-- Barra de Contato no Topo do Hero -->
+            <div class="hero-item" id="contato">
+                <div class="contact-bar">
+                    <div class="contact-item">
+                        <h3>📍 Endereço</h3>
+                        <a href="https://maps.app.goo.gl/Yj5KZWqpv7d8mFFP8" target="_blank" style="text-decoration: none; color: inherit;">
+                            <p>R. Julio de Mesquita, 192<br>Vila Matias, Santos - SP</p>
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📞 Telefone</h3>
+                        <div class="contact-buttons">
+                            <a href="tel:1332221101" class="phone-btn">Ligar (13) 3222-1101</a>
+                            <a href="https://api.whatsapp.com/send?phone=551332221101" target="_blank" class="whatsapp-btn">Chamar no WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <h3>🕒 Horário</h3>
+                        <p>Seg-Sex: 09h às 17h<br>Sábado: 08h às 12h<br>Feriados a consultar</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📢 Canal de Avisos</h3>
+                        <p>Receba atualizações e dicas importantes da nossa agencia.</p>
+                        <a href="https://whatsapp.com/channel/0029Vb6hAu0GzzKKNiJAyS0A" target="_blank" class="whatsapp-btn">Seguir Canal</a>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -107,9 +118,9 @@
                         <li>Caixa Postal para recebimento de correspondências</li>
                         <li>Atendimento empresarial especializado</li>
                         <li>Sistema PostalNet para nossos clientes acompanharem suas postagens</li>
-                        <li>Embalagens e materiais para postagem</li>
+                        <li>Embalagens e materiais para postagem (a verificar)</li>
                         <li>Orientação sobre melhores modalidades de envio</li>
-                        <li>Coleta domiciliar para empresas</li>
+                        <li>Coleta Gratuita para clientes cadastrados</li>
                     </ul>
                     
                     <!-- Box de acessibilidade -->
@@ -122,41 +133,32 @@
                     
                     <p style="margin-top: 2rem;">Nosso compromisso é proporcionar aos nossos clientes as melhores soluções em postagem de objetos, tornando o processo otimizado com foco na redução de custos e garantia de um trabalho profissional de qualidade e segurança.</p>
                 </div>
-                
-                <!-- Coluna direita - Sidebar de contato -->
-                <div class="contact-sidebar" id="contato">
-                    <h3>Informações de Contato</h3>
-                    
-                    <!-- Endereço -->
-                    <div class="contact-item">
-                        <h4>📍 Endereço</h4>
-                        <p>R. Julio de Mesquita, 192<br>Vila Matias, Santos - SP<br>CEP: 11075-220</p>
-                        <div class="coverage-area">
-                            <h5>Área de Atendimento:</h5>
-                            <p>Santos, São Vicente, Praia Grande, Itanhaém, Peruíbe, Mongaguá</p>
+
+                <!-- Coluna direita - Sidebar de Dúvidas Frequentes -->
+                <div class="faq-sidebar" id="duvidas">
+                    <h2>Dúvidas Frequentes</h2>
+                    <p class="faq-intro">Respostas rápidas para as perguntas mais comuns.</p>
+                    <div class="faq-grid">
+                        <div class="faq-card">
+                            <div class="faq-question">💰 Quanto custa para enviar?</div>
+                            <div class="faq-answer">Os preços variam conforme o peso, dimensões e destino.</div>
+                            <a href="https://www2.correios.com.br/sistemas/precosPrazos/" target="_blank" class="faq-btn">Calcular Preço e Prazo</a>
                         </div>
-                    </div>
-                    
-                    <!-- Telefone -->
-                    <div class="contact-item">
-                        <h4>📞 Telefone</h4>
-                        <p><a href="tel:1332221101" class="contact-link">(13) 3222-1101</a></p>
-                        <a href="https://api.whatsapp.com/send?phone=5513322211001" target="_blank" class="whatsapp-btn">WhatsApp</a>
-                    </div>
-                    
-                    <!-- Horário -->
-                    <div class="contact-item">
-                        <h4>🕒 Horário de Funcionamento</h4>
-                        <p><strong>Segunda a Sexta:</strong><br>09:00 às 17:00</p>
-                        <p><strong>Sábado:</strong><br>08:00 às 12:00</p>
-                        <p><small>Feriados: consultar pelo telefone</small></p>
-                    </div>
-                    
-                    <!-- Canal de avisos -->
-                    <div class="contact-item">
-                        <h4>📢 Canal de Avisos</h4>
-                        <p>Receba atualizações, avisos importantes e dicas dos Correios</p>
-                        <a href="https://whatsapp.com/channel/0029Vb6hAu0GzzKKNiJAyS0A" target="_blank" class="whatsapp-btn">Seguir Canal</a>
+                        <div class="faq-card">
+                            <div class="faq-question">📦 Como rastrear?</div>
+                            <div class="faq-answer">Use o código de rastreamento fornecido na postagem.</div>
+                            <a href="https://rastreamento.correios.com.br/app/index.php" target="_blank" class="faq-btn">Rastrear Encomenda</a>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-question">🏢 Minha empresa precisa de contrato?</div>
+                            <div class="faq-answer">Empresas com volume regular podem ter condições especiais.</div>
+                            <a href="https://empresas.correios.com.br/#/login" target="_blank" class="faq-btn">Portal Empresas</a>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-question">💳 Posso pagar à vista com desconto?</div>
+                            <div class="faq-answer">Sim! O sistema de pré-postagem permite pagamento antecipado com desconto.</div>
+                            <a href="https://prepostagem.correios.com.br" target="_blank" class="faq-btn">Pré-Postagem</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -228,40 +230,48 @@
                 <h2>Avaliação dos Nossos Clientes</h2>
                 <p class="reviews-intro">Confira o que nossos clientes dizem sobre nossos serviços</p>
                 
-                <!-- Card de avaliação do Google -->
-                <div class="google-rating">
-                    <div class="google-logo">
-                        <span class="google-g">G</span>
-                        <span class="google-o1">o</span>
-                        <span class="google-o2">o</span>
-                        <span class="google-g2">g</span>
-                        <span class="google-l">l</span>
-                        <span class="google-e">e</span>
-                        <span style="color: #666; margin-left: 5px;">Reviews</span>
+                <div class="reviews-grid">
+                    <!-- Coluna Esquerda: Card de Avaliação -->
+                    <div class="google-rating">
+                        <div class="google-logo">
+                            <span class="google-g">G</span>
+                            <span class="google-o1">o</span>
+                            <span class="google-o2">o</span>
+                            <span class="google-g2">g</span>
+                            <span class="google-l">l</span>
+                            <span class="google-e">e</span>
+                            <span style="color: #666; margin-left: 5px;">Reviews</span>
+                        </div>
+                        
+                        <div class="rating-display">
+                            <span class="rating-number">4.3</span>
+                            <div class="stars">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star partial">★</span>
+                            </div>
+                        </div>
+                        
+                        <p style="color: #666; margin: 0; font-size: 0.9rem;">Baseado em avaliações do Google</p>
+                        
+                        <a href="https://www.google.com/search?q=ACF+RANGEL+PESTANA+correios+santos" target="_blank" class="reviews-btn">
+                            Ver Todas as Avaliações
+                        </a>
                     </div>
-                    
-                    <div class="rating-display">
-                        <span class="rating-number">4.3</span>
-                        <div class="stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star partial">★</span>
+
+                    <!-- Coluna Direita: Testemunhos -->
+                    <div class="testimonials-column">
+                        <div class="reviews-testimonial">
+                            <p>"Excelente atendimento! Sempre eficientes e prestativos. A equipe é muito profissional e o ambiente é acolhedor."</p>
+                            <small>- Cliente verificado Google</small>
+                        </div>
+                        <div class="reviews-testimonial">
+                            <p>"A melhor agência dos Correios de Santos. Rápido, sem filas enormes e com um ótimo suporte para empresas. Recomendo!"</p>
+                            <small>- Cliente verificado Google</small>
                         </div>
                     </div>
-                    
-                    <p style="color: #666; margin: 0; font-size: 0.9rem;">Baseado em avaliações do Google</p>
-                    
-                    <a href="https://www.google.com/search?q=ACF+RANGEL+PESTANA+correios+santos" target="_blank" class="reviews-btn">
-                        Ver Todas as Avaliações
-                    </a>
-                </div>
-                
-                <!-- Testemunho -->
-                <div class="reviews-testimonial">
-                    <p>"Excelente atendimento! Sempre eficientes e prestativos. A equipe é muito profissional e o ambiente é acolhedor."</p>
-                    <small>- Cliente verificado Google</small>
                 </div>
             </div>
         </div>
@@ -274,74 +284,7 @@
         <div class="container">
             <h2>Nossa Localização</h2>
             <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d304.2148270142655!2d-46.32806307853192!3d-23.94424738140859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce0379ec72b0d5%3A0x56f3e32b1b397060!2sCorreios%20-%20AGF%20J%C3%BAlio%20de%20Mesquita!5e0!3m2!1spt-BR!2sbr!4v1757712011338!5m2!1spt-BR!2sbr"
-                    loading="lazy"
-                    allowfullscreen=""
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===========================================
-         SEÇÃO FAQ - Perguntas frequentes
-         =========================================== -->
-    <section class="faq-section" id="duvidas">
-        <div class="container">
-            <h2>Dúvidas Frequentes</h2>
-            <p class="faq-intro">Encontre respostas rápidas para as perguntas mais comuns sobre nossos serviços</p>
-            
-            <!-- Grade de cards FAQ -->
-            <div class="faq-grid">
-                <div class="faq-card">
-                    <div class="faq-question">💰 Quanto custa para enviar minha encomenda?</div>
-                    <div class="faq-answer">Os preços variam conforme o peso, dimensões e destino. Use a calculadora oficial dos Correios para conferir valores atualizados e prazos de entrega.</div>
-                    <a href="https://www2.correios.com.br/sistemas/precosPrazos/" target="_blank" class="faq-btn">Calcular Preço e Prazo</a>
-                </div>
-                
-                <div class="faq-card">
-                    <div class="faq-question">📦 Como rastrear minha encomenda?</div>
-                    <div class="faq-answer">Você pode acompanhar sua encomenda em tempo real usando o código de rastreamento que fornecemos no momento da postagem.</div>
-                    <a href="https://rastreamento.correios.com.br/app/index.php" target="_blank" class="faq-btn">Rastrear Encomenda</a>
-                </div>
-                
-                <div class="faq-card">
-                    <div class="faq-question">📮 Qual o CEP do meu endereço?</div>
-                    <div class="faq-answer">Não sabe o CEP completo? Use a busca oficial dos Correios para encontrar o código postal de qualquer endereço no Brasil.</div>
-                    <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" class="faq-btn">Buscar CEP</a>
-                </div>
-                
-                <div class="faq-card">
-                    <div class="faq-question">🛒 Onde comprar produtos dos Correios?</div>
-                    <div class="faq-answer">Precisa de embalagens, selos ou outros produtos oficiais? Acesse a loja online dos Correios com entrega em todo o Brasil.</div>
-                    <a href="https://www.maiscorreios.com.br/" target="_blank" class="faq-btn">Acessar Loja</a>
-                </div>
-                
-                <div class="faq-card">
-                    <div class="faq-question">🏢 Minha empresa precisa de um contrato?</div>
-                    <div class="faq-answer">Empresas com volume regular de postagens podem ter condições especiais. Acesse o portal corporativo para mais informações.</div>
-                    <a href="https://empresas.correios.com.br/#/login" target="_blank" class="faq-btn">Portal Empresas</a>
-                </div>
-                
-                <div class="faq-card">
-                    <div class="faq-question">💳 Posso pagar à vista com desconto?</div>
-                    <div class="faq-answer">Sim! O sistema de pré-postagem permite pagamento antecipado com desconto. Ideal para quem envia com frequência.</div>
-                    <a href="https://prepostagem.correios.com.br" target="_blank" class="faq-btn">Pré-Postagem</a>
-                </div>
-                
-                <div class="faq-card">
-                    <div class="faq-question">🐕 Posso entrar com meu pet?</div>
-                    <div class="faq-answer">Claro! Somos pet friendly. Você pode trazer seu animal de estimação durante o atendimento. Garantimos um ambiente acolhedor para todos.</div>
-                    <a href="#contato" class="faq-btn">Nosso Endereço</a>
-                </div>
-                
-                <div class="faq-card">
-                    <div class="faq-question">♿ A agência tem acessibilidade?</div>
-                    <div class="faq-answer">Sim! Nossas instalações possuem acesso facilitado para pessoas com mobilidade reduzida, garantindo atendimento digno e confortável.</div>
-                    <a href="#contato" class="faq-btn">Como Chegar</a>
-                </div>
-            </div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1289.216826759836!2d-46.32910695690106!3d-23.94431577663203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce0379ec72b0d5%3A0x56f3e32b1b397060!2sCorreios%20-%20AGF%20J%C3%BAlio%20de%20Mesquita!5e0!3m2!1spt-BR!2sbr!4v1758133865599!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
         </div>
     </section>
 
@@ -349,17 +292,44 @@
          FOOTER - Rodapé com informações da empresa
          =========================================== -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h3>ACF RANGEL PESTANA</h3>
-                <p>Agência Credenciada dos Correios | Santos - SP</p>
-                <p>R. Julio de Mesquita, 192 - Vila Matias | CEP: 11075-220</p>
-                <p>Telefone: (13) 3222-1101</p>
+        <div class="container footer-container">
+            <!-- Seção Principal do Rodapé -->
+            <div class="footer-main">
+                <div class="footer-agency-info">
+                    <h3>ACF RANGEL PESTANA</h3>
+                    <p>Agência Credenciada dos Correios | Santos - SP</p>
+                    <p>R. Julio de Mesquita, 192 - Vila Matias | CEP: 11075-220</p>
+                    <p>Telefone: (13) 3222-1101</p>
+                </div>
+                <div class="footer-help">
+                    <h4>Precisa de ajuda?</h4>
+                    <p>Clique abaixo para ver nossos e-mails de contato.</p>
+                    <a href="#" class="email-modal-btn" onclick="openEmailModal(event)">Ver E-mails de Contato</a>
+                </div>
+            </div>
+
+            <!-- Seção de Links Oficiais dos Correios (agora no final) -->
+            <div class="footer-official-section">
+                <div class="footer-official-header">
+                    <h5>Canais Oficiais dos Correios</h5>
+                    <p>(Atendimento da Central, não da agência)</p>
+                </div>
+                <div class="footer-official-content">
+                    <ul class="footer-official-links-list">
+                        <li><a href="https://faleconosco.correios.com.br/faleconosco/app/index.php" target="_blank" data-fallback-url="https://www.correios.com.br/">Abrir Manifestação</a></li>
+                        <li><a href="https://www.correios.com.br/falecomoscorreios/central-de-atendimento" target="_blank" data-fallback-url="https://www.correios.com.br/">Central de Atendimento</a></li>
+                        <li><a href="https://faleconosco.correios.com.br/faleconosco/app/cadastro/suporte/index.php" target="_blank" data-fallback-url="https://www.correios.com.br/">Suporte a Clientes com Contrato</a></li>
+                        <li><a href="https://www.correios.com.br/falecomoscorreios/ouvidoria" target="_blank" data-fallback-url="https://www.correios.com.br/">Ouvidoria</a></li>
+                        <li><a href="https://www.correios.com.br/falecomoscorreios/canais-de-denuncia" target="_blank" data-fallback-url="https://www.correios.com.br/">Canal de Denúncia</a></li>
+                        <li><a href="tel:40038210">📞 4003-8210 (CAC)</a></li> <!-- Links tel: e wa.me: não precisam de fallback -->
+                        <li><a href="https://wa.me/551140038210" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg> (11) 4003-8210</a></li>
+                    </div>
+                </div>
             </div>
             
             <div class="footer-bottom">
                 <div>
-                    <p>&copy; 2025 ACF RANGEL PESTANA - Todos os direitos reservados</p>
+                    <p>&copy; 2025 Cracco & Dias Ltda - Todos os direitos reservados</p>
                 </div>
                 <div class="dev-credit">
                     <p>Desenvolvido por <a href="#" title="Desenvolvedor">Dev. Claude</a></p>
@@ -372,5 +342,38 @@
          JAVASCRIPT - Scripts do site
          =========================================== -->
     <script src="script.js"></script>
+
+    <!-- ===========================================
+         MODAL - Pop-up "Esqueci a Senha"
+         =========================================== -->
+    <div id="senhaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h4>Redefinição de Senha</h4>
+            <p>Para redefinir sua senha do PostalNet, por favor, entre em contato conosco diretamente pelo WhatsApp.</p>
+            <a href="https://api.whatsapp.com/send?phone=551332221101" target="_blank" class="whatsapp-btn">
+                Falar no WhatsApp (13) 3222-1101
+            </a>
+            <p class="modal-info">Este procedimento é necessário para garantir a segurança da sua conta.</p>
+        </div>
+    </div>
+
+    <!-- ===========================================
+         MODAL - Pop-up de E-mails de Contato
+         =========================================== -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h4>Nossos E-mails de Contato</h4>
+            <p>Escolha o departamento com o qual deseja falar:</p>
+            <ul class="email-list">
+                <li><strong>Operacional:</strong> <a href="mailto:faleconosco@acfrangel.com.br">faleconosco@acfrangel.com.br</a></li>
+                <li><strong>Comercial:</strong> <a href="mailto:comercial.agfjuliodemesquita@wecan.com.br">comercial.agfjuliodemesquita@wecan.com.br</a></li>
+                <li><strong>Financeiro:</strong> <a href="mailto:sac.agf.julio.de.mesquita@gmail.com">sac.agf.julio.de.mesquita@gmail.com</a></li>
+                <li><strong>Gerência:</strong> <a href="mailto:agfjuliodemesquita@yahoo.com.br">agfjuliodemesquita@yahoo.com.br</a></li>
+            </ul>
+            <p class="modal-info">Responderemos sua solicitação o mais breve possível.</p>
+        </div>
+    </div>
 </body>
 </html>
